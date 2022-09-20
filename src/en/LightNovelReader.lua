@@ -36,7 +36,7 @@ return {
 
 	listings = {
 		Listing("Top Rated", true, function(data, inc)
-			return parseNovels(GETDocument(expandURL("/ranking/top-rated/" .. inc)))
+			return parseNovels(GETDocument(expandURL("/ranking/top-rated/" .. data[PAGE])))
 		end)
 	},
 
