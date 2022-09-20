@@ -1,4 +1,6 @@
--- {"id":7619416,"ver":"1.0.0","libVer":"1.0.0","author":"Aegyo","dep":[]}
+-- {"id":7619416,"ver":"1.0.0","libVer":"1.0.0","author":"Aegyo","dep":["dkjson>=1.0.1"]}
+
+local json = Require("dkjson")
 
 local baseURL = "https://lightnovelreader.org"
 
@@ -86,21 +88,15 @@ return {
 	hasSearch = true,
 	isSearchIncrementing = false,
 	search = function(data)
-    local req = Request(GET(baseURL .. "/search/autocomplete/dataType-json&query="..data[QUERY], {Accept = "application/json"}))
+    local res = json.GET(baseURL .. "/search/autocomplete?dataType=json&query="..data[QUERY])
 
-    local decodedJson = json.decode(req:getBody())
-
-    -- Get novels from the JSON.
-    local novels = {}
-    for _, n in ipairs(decodedJson.results) do
-        novels[#novels + 1] = Novel {
+    return map(res.results, function(n)
+        return Novel {
             title = n.original_title,
             link = shrinkURL(n.link),
             imageURL = n.image
         }
-    end
-
-		return novels
+    end)
 	end,
 }
 
