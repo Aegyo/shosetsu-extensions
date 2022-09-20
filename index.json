@@ -479,6 +479,16 @@
       "ver": "1.0.0",
       "libVer": "1.0.0",
       "md5": ""
+    },
+    {
+      "name": "Light Novel Reader",
+      "fileName": "LightNovelReader",
+      "imageURL":"https://lightnovelreader.org/assets/new/images/logo.png",
+      "id": 7619416,
+      "lang": "en",
+      "ver": "1.0.0",
+      "libVer": "1.0.0",
+      "md5": ""
     }
   ]
 }
