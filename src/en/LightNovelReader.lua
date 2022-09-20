@@ -88,6 +88,7 @@ return {
 	hasSearch = true,
 	isSearchIncrementing = false,
 	search = function(data)
+    return { Novel { title = "In this life etc", link = "/in-this-life-i-will-be-the-lord-775935", imageURL = "https://lightnovelreader.org/uploads/posters/1629662284.jpg"} }
     local res = json.GET(baseURL .. "/search/autocomplete?dataType=json&query="..data[QUERY])
 
     return map(res.results, function(n)
