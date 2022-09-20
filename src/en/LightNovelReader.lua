@@ -13,7 +13,7 @@ local function expandURL(url)
 end
 
 local function parseNovels(doc)
-  return map(doc:selectFirst(".categoryItems ul"):select("> li"), function(el)
+  return map(doc:selectFirst(".category-items > ul"):select("> li"), function(el)
     local title = el:selectFirst(".category-name"):selectFirst("a")
     local image = el:selectFirst(".category-image"):selectFirst("img")
     return Novel {
